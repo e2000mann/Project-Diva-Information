@@ -1,3 +1,12 @@
-.App {
+* {
   text-align: center;
+  font-family: sans-serif;
+}
+
+.header {
+  color: turquoise;
+}
+
+a {
+  margin: 1vh 1vw 1vh 1vw;
 }
