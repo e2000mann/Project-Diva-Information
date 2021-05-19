@@ -7,6 +7,14 @@
   color: turquoise;
 }
 
+.header > * {
+  display: inline;
+}
+
+.header > img {
+  max-width: 20%;
+}
+
 a {
   margin: 1vh 1vw 1vh 1vw;
 }

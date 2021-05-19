@@ -3,13 +3,22 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useLocation
 } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { games } from "./data";
 
 import logo from "./images/logo.png";
+
+// custom functions
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+// pages
 
 function App() {
   return (
@@ -48,9 +57,38 @@ function Songs() {
 }
 
 function Modules() {
+  let query = useQuery();
   return (
-    <p>Here are modules</p>
+    <>
+      <p>Here are modules</p>
+
+      <a href='/modules/?name=miku'>Miku</a>
+      <a href='/modules/?name=rin'>Rin</a>
+      <a href='/modules/?name=len'>Len</a>
+      <a href='/modules/?name=luka'>Luka</a>
+      <a href='/modules/?name=meiko'>Meiko</a>
+      <a href='/modules/?name=kaito'>Kaito</a>
+      <a href='/modules/?name=other'>Other</a>
+
+      <ModuleList name={query.get("name")} />
+    </>
   )
+}
+
+function ModuleList({name}){
+  console.log(name);
+  if (name != null){
+    if (name != "other"){
+      return (
+        <p>Here are modules for {name}</p>
+      )
+    } else {
+      return (
+        <p>Here are modules for the other characters (Teto, Neru, Haku)</p>
+      )
+    }
+  }
+  return null
 }
 
 function Games() {
