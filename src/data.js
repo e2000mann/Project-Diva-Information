@@ -85,3 +85,11 @@ export const games = [
         "released": 2020
     }
 ]
+
+export const songs = [
+    {
+        "name": "Rollin' Girl",
+        "singer": "Miku",
+        "producer": "Wowaka"
+    }
+]

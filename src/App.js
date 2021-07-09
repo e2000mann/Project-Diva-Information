@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import React from 'react';
 import './App.css';
-import { games } from "./data";
+import { games, songs } from "./data";
 
 import logo from "./images/logo.png";
 
@@ -52,7 +52,18 @@ function App() {
 
 function Songs() {
   return (
+    <>
     <p>Here are songs</p>
+    <div>
+    {
+      songs.map((item)=>{
+        let output = `${item.name}, sung by ${item.singer}, produced by ${item.producer}`;
+        return (
+        <p>{output}</p>)}
+        )
+    }
+    </div>
+    </>
   )
 }
 
